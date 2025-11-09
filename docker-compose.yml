@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  app:
+    image: rasindudulshansiriwardhana/marketplace-service:latest
+    container_name: marketplace-service
+    ports:
+      - 5008:5008
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    container_name: marketplace-mongo
+    ports:
+      - "27019:27017"
+    volumes:
+      - marketplace-mongo-data:/data/db
+
+volumes:
+  marketplace-mongo-data:
