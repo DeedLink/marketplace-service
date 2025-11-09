@@ -15,7 +15,7 @@ services:
     image: mongo:6.0
     container_name: marketplace-mongo
     ports:
-      - "27019:27017"
+      - "27022:27017"
     volumes:
       - marketplace-mongo-data:/data/db
 
