@@ -6,7 +6,7 @@ const marketplaceSchema = new mongoose.Schema({
   to: { type: String },
   status: { 
     type: String, 
-    enum: ["open_to_sale", "pending_sale", "sale_completed"], 
+    enum: ["open_to_sale", "pending_sale", "sale_completed", "cancelled"], 
     default: "open_to_sale" 
   },
   amount: { type: Number, required: true },
@@ -14,7 +14,8 @@ const marketplaceSchema = new mongoose.Schema({
   deedId: { type: String, required: true },
   tokenId: { type: String, required: true },
   share: { type: Number, required: true },
-  description: { type: String }
+  description: { type: String },
+  listingTypeOnChain: { type: String, enum: ["NFT", "FRACTIONAL"], required: false },
 });
 
 export default mongoose.model("Marketplace", marketplaceSchema);
